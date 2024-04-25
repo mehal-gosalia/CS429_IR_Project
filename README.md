@@ -116,3 +116,13 @@ Then enter your search query, for example if I enter 'Architecture' it shows me 
 ## Data Sources
 All of my data is from the Chicago Wikipedia page : ``` https://en.wikipedia.org/wiki/Chicago ```
 
+## Test Cases
+Setup and teardown processes prepare and clean the test environment, ensuring isolated conditions for each test case. The test harness executes functionality and edge case tests, utilizing Flask’s test client to simulate HTTP requests and verify the responses. Coverage includes verifying the crawler’s data fetching and storage, the indexer's accurate text transformation and serialization, the Flask app’s route handling and security, as well as overall system integration to ensure end-to-end functionality. This rigorous testing ensures the system performs reliably under various scenarios, preparing it for future enhancements and scalability.
+
+## Source Code
+This project's source code is all open-source and compliant with MIT licensing; comprehensive documentation is included for every part of the code.
+
+## Bibliography
+* Open AI for some help with terminal commands to install packages and stuff.
+* Chicago Wikipedia Page
+* Professor. Panchal and the TA's (Special thanks!)
