@@ -53,3 +53,9 @@ scrapy crawl chicago_wiki
 ```
 This was used from the terminal within the project directory. This command triggers the spider to start processing the URLs defined in ``` start_urls ```.
 
+## Indexer:
+
+Step 1: The script starts by opening and reading the ``` chicago_data.json ```  file using Python's built-in json module, which converts the JSON formatted data into Python dictionaries.
+Step 2: HTML Parsing; Utilizes ``` BeautifulSoup ``` from the ``` bs4 ``` package to parse HTML content and extract plain text.
+Step 3: A ``` TfidfVectorizer ``` object from ``` scikit-learn ``` is created to transform the cleaned text into a TF-IDF matrix. This matrix represents the text data in a form that is suitable for information retrieval and similarity calculations.
+Step 4: The vectorizer and the TF-IDF matrix are serialized using Python's pickle module and saved into .pkl files. These files (``` vectorizer.pkl ``` and ``` tfidf_matrix.pkl ```) can be used later for loading the vectorization model and matrix quickly without needing to reprocess the data.
