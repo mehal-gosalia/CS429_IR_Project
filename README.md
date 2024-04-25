@@ -63,8 +63,56 @@ This was used from the terminal within the project directory. This command trigg
 
 4. The vectorizer and the TF-IDF matrix are serialized using Python's pickle module and saved into .pkl files. These files (``` vectorizer.pkl ``` and ``` tfidf_matrix.pkl ```) can be used later for loading the vectorization model and matrix quickly without needing to reprocess the data.
 
+5. All of this was ran under the ``` tfidf_vectorizer.py ``` file.
+
 To run the script and handle its dependencies, you should have the following Python packages installed: json, re, pickle, numpy, BeautifulSoup, scikit-learn. I used the following terminal command to install it- 
 ```
 pip install numpy beautifulsoup4 scikit-learn
 ```
+
+### Flask Processor:
+1. The script begins by loading the pre-trained TF-IDF vectorizer and the corresponding matrix using Python’s pickle module. These files are essential for transforming new queries into the same vector space as the indexed documents. Additionally, it loads the original document data from a JSON file, which contains metadata and content related to each indexed document.
+2. The search function takes a query and an optional parameter top_k to determine how many results to return. It transforms the query into a vector, calculates cosine similarities with the indexed documents, and sorts these to return the top results.
+3. Home Route (/): A simple HTML form is served that allows users to input search queries.
+Search Route (/search): Handles the logic for receiving search queries via POST or GET, processes them using the search function, and returns the results in JSON format. This route also handles error conditions like empty queries.
+4. Ensure Python3 is installed using the following command :
+``` 
+python -m venv venv
+source venv/bin/activate  # On Unix or macOS
+venv\Scripts\activate  # On Windows
+```
+5. Use this command to install all the libraries - 
+```
+pip install Flask numpy scikit-learn
+```
+
+## Conclusion
+
+#### Outputs:
+The project outputs include:
+* JSON File: Containing the scraped data from Wikipedia, structured and ready for processing.
+* Pickle Files: Including the saved TF-IDF vectorizer and matrix, which are crucial for processing and responding to search queries.
+* Web Application: A functioning web interface that allows users to enter queries and view the search results in real time.
+
+  For the web application and running the search query, run the flask_installer.py file, it will show you the following output -
+
+<img width="989" alt="image" src="https://github.com/mehal-gosalia/CS429_IR_Project/assets/118829943/d9655438-7e6f-4c41-9539-e0fda98bc866">
+
+Click on the link shown - ``` http://127.0.0.1:5000 ```
+
+it will lead you to a page on chrome/ any web browser of your choice and show this:
+<img width="1271" alt="image" src="https://github.com/mehal-gosalia/CS429_IR_Project/assets/118829943/6fc89ed6-c6fb-4308-8af1-61a7e2d42bd0">
+
+Then enter your search query, for example if I enter 'Architecture' it shows me this output:
+
+<img width="1019" alt="image" src="https://github.com/mehal-gosalia/CS429_IR_Project/assets/118829943/db0cecf5-1458-4a1d-8336-94df4990b4a1">
+
+
+#### Caveats and Cautions:
+* The current system is designed for a relatively small dataset and might not perform well with significantly larger data volumes. Scaling the system to handle more extensive data or higher query volumes would require optimizations such as implementing more efficient data structures or moving to more robust infrastructure.
+* The Flask application is running in debug mode, which is not suitable for production environments. Additionally, the handling of user input should be thoroughly validated to prevent security vulnerabilities, such as SQL injection or cross-site scripting (XSS).
+*  While the scraper and indexer function well with the structured data from Wikipedia, they may not perform as effectively with poorly structured or more diverse content sources without further refinement of the data extraction and processing techniques.
+
+## Data Sources
+All of my data is from the Chicago Wikipedia page : ``` https://en.wikipedia.org/wiki/Chicago ```
 
