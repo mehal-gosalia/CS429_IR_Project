@@ -36,6 +36,20 @@ The system was designed to extract, index, and search textual data from the web 
 * JSON files for data interchange between components.
 * Pickle files for persisting Python objects (TF-IDF model and matrix).
 
-####Implementation:
+#### Implementation:
 PyCharm: Used as the Integrated Development Environment (IDE) for writing, testing, and debugging the code. PyCharm provides tools for managing Python projects, including code analysis, a graphical debugger, a testing runner, and integration with version control systems.
+
+
+## Operations
+
+### Scrapy file:
+Initiated the project by using the following command - 
+```
+scrapy startproject chicago_crawler
+```
+Within the project, the ``` ChicagoWikiSpider ``` class was created in a file named ``` chicagospider.py ```. This spider is responsible for crawling the Chicago Wikipedia page. The code defines the spider's behavior, including the URLs to start with, the allowed domains, and settings like depth limit and auto-throttling to manage the request rate. To execute the spider and begin crawling, the command - 
+```
+scrapy crawl chicago_wiki
+```
+This was used from the terminal within the project directory. This command triggers the spider to start processing the URLs defined in ``` start_urls ```.
 
